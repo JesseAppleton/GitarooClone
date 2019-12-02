@@ -8,22 +8,20 @@ public class Notes : MonoBehaviour
     public float hSpeed;
     public float vSpeed;
     public KeyCode key;
+    public int points = 100;
 
-    void Awake()
-    {
+    void Awake() {
         rb = GetComponent<Rigidbody2D>();
         // Debug.Log("key needed: " + key);
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         rb.velocity = new Vector2(hSpeed, vSpeed);
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         
     }
 }
