@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.08, y: 0.030000687}
-  m_SizeDelta: {x: 16.4412, y: 5}
+  m_AnchoredPosition: {x: -0.12, y: 0.030000687}
+  m_SizeDelta: {x: 1.36, y: 0.414}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &4119940833692225921
 MeshRenderer:
@@ -112,7 +112,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: A
+  m_text: <
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -140,8 +140,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -216,26 +216,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftNote
       objectReference: {fileID: 0}
-    - target: {fileID: 2091695391669094972, guid: db88745601c3c214cb418c35299ad599,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.046279836
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091695391669094972, guid: db88745601c3c214cb418c35299ad599,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.754717
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091695391669094972, guid: db88745601c3c214cb418c35299ad599,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.068112105
-      objectReference: {fileID: 0}
-    - target: {fileID: 2091695391669094974, guid: db88745601c3c214cb418c35299ad599,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 2091695391669094975, guid: db88745601c3c214cb418c35299ad599,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -290,6 +270,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2091695391669094972, guid: db88745601c3c214cb418c35299ad599,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.046279836
+      objectReference: {fileID: 0}
+    - target: {fileID: 2091695391669094972, guid: db88745601c3c214cb418c35299ad599,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.754717
+      objectReference: {fileID: 0}
+    - target: {fileID: 2091695391669094972, guid: db88745601c3c214cb418c35299ad599,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.068112105
+      objectReference: {fileID: 0}
+    - target: {fileID: 2091695391669094974, guid: db88745601c3c214cb418c35299ad599,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8197484147687725081, guid: db88745601c3c214cb418c35299ad599,
         type: 3}

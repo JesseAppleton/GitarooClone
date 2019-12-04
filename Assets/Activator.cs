@@ -14,8 +14,16 @@ public class Activator : MonoBehaviour
     KeyCode noteKey;
     int notePoints;
 
+    // Variables to help line up songs to BPM
+    public bool createMode;
+    public GameObject tNote;
+    public GameObject lNote;
+    public GameObject bNote;
+    public GameObject rNote;
+
     // Called when constructed
     void Awake() {
+        PlayerPrefs.SetInt("Score", 0);
         sr = GetComponent<SpriteRenderer>();    
     }
 
@@ -26,18 +34,33 @@ public class Activator : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-
-        if (Input.anyKeyDown) {
-            StartCoroutine(Pressed());
-        }
-
-        if (Input.GetKeyDown(noteKey) && active) {
-            Destroy(note);
-            AddScore();
-            active = false;
-        }
-
         FaceMouse();
+
+        // for note tracking
+        if (createMode) {
+            if (Input.GetKeyDown("w")) {
+                Instantiate(tNote, transform.position, Quaternion.identity);
+            }
+            if (Input.GetKeyDown("a")) {
+                Instantiate(lNote, transform.position, Quaternion.identity);
+            }
+            if (Input.GetKeyDown("s")) {
+                Instantiate(bNote, transform.position, Quaternion.identity);
+            }
+            if (Input.GetKeyDown("d")) {
+                Instantiate(rNote, transform.position, Quaternion.identity);
+            }
+        }
+        else {
+            if (Input.anyKeyDown) {
+                StartCoroutine(Pressed());
+            }
+            if (Input.GetKeyDown(noteKey) && active) {
+                Destroy(note);
+                AddScore();
+                active = false;
+            }
+        }
     }
 
     // When the note enters the activator
@@ -76,7 +99,6 @@ public class Activator : MonoBehaviour
             mousePosition.x - transform.position.x,
             mousePosition.y - transform.position.y
         );
-
         transform.up = direction;
     }
 }
