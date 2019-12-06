@@ -6,11 +6,11 @@ public class Activator : MonoBehaviour
 {
     // Base variables
     bool active = false;
-    GameObject note;
+    GameObject note,gm;
     SpriteRenderer sr;
     Color old;
 
-    // Variables from points
+    // Variables from notes
     KeyCode noteKey;
     int notePoints;
 
@@ -23,20 +23,20 @@ public class Activator : MonoBehaviour
 
     // Called when constructed
     void Awake() {
-        PlayerPrefs.SetInt("Score", 0);
         sr = GetComponent<SpriteRenderer>();    
     }
 
     // Start is called before the first frame update
     void Start() {
         old = sr.color;
+        gm = GameObject.Find("GameManager");
     }
 
     // Update is called once per frame
     void Update() {
         FaceMouse();
 
-        // for note tracking
+        // song creation/tracking...find a better way with spawners?
         if (createMode) {
             if (Input.GetKeyDown("w")) {
                 Instantiate(tNote, transform.position, Quaternion.identity);
@@ -51,13 +51,19 @@ public class Activator : MonoBehaviour
                 Instantiate(rNote, transform.position, Quaternion.identity);
             }
         }
+        // regular play
         else {
             if (Input.anyKeyDown) {
                 StartCoroutine(Pressed());
             }
             if (Input.GetKeyDown(noteKey) && active) {
                 Destroy(note);
-                AddScore();
+                AddingScore();
+                AddingStreak();
+                active = false;
+            }
+            else if (Input.anyKeyDown && !active) {
+                ResettingStreak();
                 active = false;
             }
         }
@@ -66,6 +72,9 @@ public class Activator : MonoBehaviour
     // When the note enters the activator
     void OnTriggerEnter2D(Collider2D col) {
         active = true;
+        if (col.gameObject.tag == "WinNote") {
+            gm.GetComponent<GameManager>().WinGame();
+        }
         if (col.gameObject.tag == "Note") {
             note = col.gameObject;
             noteKey = col.GetComponent<Notes>().key;
@@ -76,16 +85,28 @@ public class Activator : MonoBehaviour
     // When the note exits the activator
     void OnTriggerExit2D(Collider2D col) {
         active = false;
+        // ResettingStreak();
     }
 
     // Yep
-    void AddScore() {
-        PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") + notePoints );
+    void AddingScore() {
+        PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") + 
+            (notePoints * gm.GetComponent<GameManager>().multiplier));
+    }
+
+    // Also yep
+    void AddingStreak() {
+        gm.GetComponent<GameManager>().AddStreak();
+    }
+
+    // Another yep
+    void ResettingStreak() {
+        gm.GetComponent<GameManager>().ResetStreak();
     }
 
     // When player presses a button
     IEnumerator Pressed() {
-        sr.color = new Color(0,0,0);
+        sr.color = new Color (0,0,0);
         yield return new WaitForSeconds(0.2f);
         sr.color = old;
     }
