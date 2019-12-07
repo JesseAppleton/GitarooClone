@@ -57,8 +57,10 @@
   <ItemGroup>
      <Compile Include="Assets\Activator.cs" />
      <Compile Include="Assets\GameManager.cs" />
+     <Compile Include="Assets\MusicManager.cs" />
      <Compile Include="Assets\Notes.cs" />
      <Compile Include="Assets\PPText.cs" />
+     <Compile Include="Assets\RestartGame.cs" />
      <Compile Include="Assets\RockMeter.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />

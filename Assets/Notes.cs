@@ -9,15 +9,17 @@ public class Notes : MonoBehaviour
     public float vSpeed;
     public KeyCode key;
     public int points;
+    bool called = false;
 
     void Awake() {
         rb = GetComponent<Rigidbody2D>();
         // Debug.Log("key needed: " + key);
     }
 
-    // Start is called before the first frame update
-    void Start() {
-        rb.velocity = new Vector2(hSpeed, vSpeed);
+    void Update() {
+        if (PlayerPrefs.GetInt("Start") == 1 && !called) {
+            rb.velocity = new Vector2(hSpeed, vSpeed);
+            called = true;
+        }
     }
-
 }
