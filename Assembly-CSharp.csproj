@@ -62,6 +62,7 @@
      <Compile Include="Assets\PPText.cs" />
      <Compile Include="Assets\RestartGame.cs" />
      <Compile Include="Assets\RockMeter.cs" />
+     <Compile Include="Assets\VideoManager.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

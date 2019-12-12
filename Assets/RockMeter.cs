@@ -20,6 +20,5 @@ public class RockMeter : MonoBehaviour
 
         // Moves the needle
         needle.transform.localPosition = new Vector3((rm-25)/16.666f, 0, 0);
-
     }
 }
